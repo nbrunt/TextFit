@@ -14,29 +14,45 @@
         // Best fit
         $("#test2").textfit('bestfit');
 
-
+        // Truncate
+        $("#test3").textfit('truncate');
 
       });
     </script>
 
     <style type="text/css">
+      #test1 {
+        border: 1px solid green;
+        font-size: 20px;
+      }
+
       #test2 {
         border: 1px solid red;
         width: 120px;
         height: 50px;
+      }
+
+      #test3 {
+        border: 1px solid blue;
+        width: 300px;
+        height: 40px;
       }
     </style>
 
   </head>
 
   <body>
-    <font size="5">
-      <span id="test1">Test1</span>
-    </font>
+    <div id="test1">Test1</div>
 
     <br /><br />
 
     <div id="test2">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+
+    <br /><br />
+
+    <div id="test3">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </div>
   </body>

@@ -31,10 +31,10 @@
 
       // Render ruler, measure, then remove
       $("body").append(ruler);
-      var width = ruler.width();
+      var w = ruler.width();
       ruler.remove();
 
-      return width;
+      return w;
     },
 
     /**
@@ -50,21 +50,42 @@
 
       // Wrap the content of the target element in a div with
       // with the same width
-      this.wrapInner($("<div id='textfit-best-fit-inner'></div>")
-                     .css("width", this.css("width")));
-      var i = $("#textfit-best-fit-inner");
+      var i = innerWrap(this);
 
       // Keep reducing the font size of the target element
       // until the inner div fits
-      while(i.height() > this.height()) {
+      while (i.height() > this.height()) {
         this.css("font-size", --fs + "px");
       }
 
-      // Remove inner div
-      i.replaceWith(i.contents());
+      removeWrap(i);
+      return this;
+    },
+
+    /**
+     *  Truncate
+     *
+     *  Trims the contents of the target element to the size
+     *  of the element.
+     *
+     *  The target element must have an absolute width and height.
+     */
+    truncate : function(length) {
+      var i = innerWrap(this);
+      var h;
+
+      while (i.height() > this.height()) {
+        h = i.html();
+        i.html(h.substring(0, h.length-4));
+        i.append("...");
+      }
+
+      removeWrap(i);
+      return this;
     }
 
   };
+
 
   $.fn.textfit = function( method ) {
 
@@ -77,6 +98,21 @@
       $.error( 'Method ' +  method + ' does not exist on jQuery.textfit' );
     }
 
+  };
+
+
+  // Helper methods
+
+  var innerWrap = function( el ) {
+    // Wrap the content of the target element in a div with
+    // with the same width
+    el.wrapInner($("<div id='textfit-inner'></div>")
+                 .css("width", el.css("width")));
+    return $("#textfit-inner");
+  };
+
+  var removeWrap = function( el ) {
+    el.replaceWith(el.contents());
   };
 
 })( jQuery );
