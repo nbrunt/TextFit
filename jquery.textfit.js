@@ -1,5 +1,5 @@
 /**
- * jQuery Text Fit v0.1b
+ * jQuery Text Fit v1.0
  * https://github.com/nbrunt/TextFit
  *
  * Copyright 2013 Nick Brunt
