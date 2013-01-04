@@ -3,20 +3,42 @@
     <title>TextFit Examples</title>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="jquery.text.fit.js"></script>
+    <script type="text/javascript" src="jquery.textfit.js"></script>
 
     <script type="text/javascript">
       $(document).ready(function(){
-        console.log($("#test1").textWidth("Testing"));
+
+        // Text width
+        console.log($('#test1').textfit('width','Testing'));
+
+        // Best fit
+        $("#test2").textfit('bestfit');
+
+
+
       });
     </script>
+
+    <style type="text/css">
+      #test2 {
+        border: 1px solid red;
+        width: 120px;
+        height: 50px;
+      }
+    </style>
 
   </head>
 
   <body>
     <font size="5">
-      <span id="test1">Testing Testing</span>
+      <span id="test1">Test1</span>
     </font>
+
+    <br /><br />
+
+    <div id="test2">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
   </body>
 
 </html>
