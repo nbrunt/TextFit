@@ -6,21 +6,29 @@
     <script type="text/javascript" src="jquery.textfit.js"></script>
 
     <script type="text/javascript">
-      $(document).ready(function(){
+      function testWidth() {
+        alert("Width: " + $('#test1').textfit('width','Testing'));
+      }
 
-        // Text width
-        console.log($('#test1').textfit('width','Testing'));
-
-        // Best fit
+      function testBestFit() {
         $("#test2").textfit('bestfit');
+      }
 
-        // Truncate
+      function testTruncate() {
         $("#test3").textfit('truncate');
+      }
+      $(document).ready(function(){
 
       });
     </script>
 
     <style type="text/css">
+      .column {
+        float: left;
+        width: 400px;
+        padding: 10px;
+      }
+
       #test1 {
         border: 1px solid green;
         font-size: 20px;
@@ -28,8 +36,8 @@
 
       #test2 {
         border: 1px solid red;
-        width: 120px;
-        height: 50px;
+        width: 200px;
+        height: 60px;
       }
 
       #test3 {
@@ -42,18 +50,25 @@
   </head>
 
   <body>
-    <div id="test1">Test1</div>
+    <h1>TextFit Examples</h1>
 
-    <br /><br />
-
-    <div id="test2">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <div class="column">
+      <button onclick="testWidth()">Get width of text in pixels</button>
+      <div id="test1">Test1</div>
     </div>
 
-    <br /><br />
+    <div class="column">
+      <button onclick="testBestFit()">Best Fit</button>
+      <div id="test2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+    </div>
 
-    <div id="test3">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <div class="column">
+      <button onclick="testTruncate()">Truncate</button>
+      <div id="test3">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
     </div>
   </body>
 
