@@ -88,6 +88,14 @@
 
 
   $.fn.textfit = function( method ) {
+    
+    //If applied on multiple items
+    if (this.length > 1) {
+        this.each(function () {
+            $(this).textfit(method);
+        });
+        return;
+    }
 
     // Method calling logic
     if ( methods[method] ) {
